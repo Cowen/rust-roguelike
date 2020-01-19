@@ -4,8 +4,6 @@ use std::cmp::{max, min};
 use super::{Rect};
 extern crate specs;
 use specs::prelude::*;
-use super::{Player, Viewshed};
-
 
 #[derive(PartialEq, Copy, Clone)]
 pub enum TileType {
@@ -46,7 +44,7 @@ impl Map {
 
         let mut rng = RandomNumberGenerator::new();
 
-        for i in 0..MAX_ROOMS {
+        for _ in 0..MAX_ROOMS {
             let w = rng.range(MIN_SIZE, MAX_SIZE);
             let h = rng.range(MIN_SIZE, MAX_SIZE);
             let x = rng.roll_dice(1, 80 - w - 1) - 1;
